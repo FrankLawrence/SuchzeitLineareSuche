@@ -64,4 +64,13 @@ public class random100 {
         }
         
     }
+
+    public int gibIndex(int suchzahl){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i]== suchzahl) {
+                return i;
+            }
+        }
+        return array.length;
+    }
 }
