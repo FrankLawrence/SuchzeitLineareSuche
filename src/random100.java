@@ -57,7 +57,7 @@ public class random100 {
     public void printArray(){
         for (int j = 0; j < array.length; j++) {
             for (int i = 0; i < 10; i++) {
-                System.out.print(array[j]+" ");
+                System.out.print(array[j]+"\t");
                 j++;
             }
             System.out.println("");

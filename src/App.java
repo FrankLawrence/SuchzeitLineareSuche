@@ -19,6 +19,6 @@ public class App {
                 System.out.println("Durchschnitt: "+ Durchschnitt10/anzahlVersuche );
             }
         }
-        //array.printArray();
+        array.printArray();
     }
 }
