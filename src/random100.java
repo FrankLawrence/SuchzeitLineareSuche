@@ -73,4 +73,39 @@ public class random100 {
         }
         return array.length;
     }
+
+    private void tauscheElementeAnPositionen(int first, int second) {
+        int placeholder = array[first];
+        array[first] = array[second];
+        array[second] = placeholder;
+    }
+
+    private int teile(int anfang, int ende){
+        int left= anfang;
+        int right = ende-1;
+        int pivot = array[ende];
+        while (left<right){
+            while (left< ende && array[left] <= pivot){
+                left++;
+            }
+            while (right > anfang && array[right] > pivot){
+                right--;
+            }
+            if (left< right){
+                tauscheElementeAnPositionen(left,right);
+            }
+        }
+        if (array[left] > pivot){
+            tauscheElementeAnPositionen(left,ende);
+        }
+        return left;
+    }
+
+    public void quicksort (int anfang, int ende){
+        if (anfang<ende){
+            int teiler = teile(anfang,ende);
+            quicksort(anfang,teiler-1);
+            quicksort(teiler+1,ende);
+        }
+    }
 }
