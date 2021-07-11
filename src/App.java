@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) {
-        int laenge = 32;
+        int laenge = 100;
         int nLaenge = 10;
         int werteBereich = 100;
         random100 array = new random100(laenge, werteBereich);
@@ -19,7 +19,8 @@ public class App {
                 System.out.println("Durchschnitt: "+ Durchschnitt10/anzahlVersuche );
             }
         }
-        array.quicksort(0, 31);
+        array.quicksort(0, laenge-1);
         array.printArray();
+        array.suchzeitBinaer(0, laenge-1, 60);
     }
 }

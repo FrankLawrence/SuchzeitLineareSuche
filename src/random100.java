@@ -59,6 +59,9 @@ public class random100 {
             for (int i = 0; i < 10; i++) {
                 System.out.print(array[j]+"\t");
                 j++;
+                if (j==array.length) {
+                    break;
+                }
             }
             System.out.println("");
         }
