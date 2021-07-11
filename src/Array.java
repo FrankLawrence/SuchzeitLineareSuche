@@ -1,8 +1,9 @@
-public class random100 {
+public class Array {
     int[] array;
     int anzahlNummer= 1;
     int anzahlVBinear = 0;
-    public random100(int aLaenge, int werteBereich){
+    int[] numbers;
+    public Array(int aLaenge, int werteBereich){
         array = new int[aLaenge];
         for (int i = 0; i < array.length; i++) {
             double a = Math.random()*werteBereich;
@@ -21,7 +22,7 @@ public class random100 {
     }
 
     public int anzahlVergleiche(int nLaenge, int werteBereich){
-        int[] numbers = new int[nLaenge];
+        numbers = new int[nLaenge];
         int anzahlVLinear = 1;
         int anzahlVergleiche = 0;
         for (int i = 0; i < numbers.length; i++) {
@@ -38,7 +39,7 @@ public class random100 {
                 }
             }
         }
-        // numbers Array mit 100 zufällig erzeugten Zahlen
+        // numbers Array mit nLaenge zufällig erzeugten Zahlen
         for (int i = 0; i < numbers.length; i++) {
             for (int j = 0; j < array.length; j++) {
                 if (numbers[i]==array[j]) {
@@ -150,5 +151,35 @@ public class random100 {
 
     public int teilen(int left, int right){
         return (right-left)/2+left;
+    }
+
+    public void suchzeitBinearDurchschnitt(int nLaenge, int werteBereich, Boolean showAll){
+        numbers = new int[nLaenge];
+        int anzahlVLinear = 1;
+        for (int i = 0; i < numbers.length; i++) {
+            double a = Math.random()*werteBereich;
+            for(int j=0; j<anzahlVLinear;){
+                if((int)a!=numbers[j]){
+                    numbers[i] = (int) a;
+                    anzahlVLinear++;
+                    break;
+                }
+                else{
+                    i--;
+                    break;
+                }
+            }
+        }
+        if (showAll) {
+            System.out.print("Anzahl Verglieche Binearsuche: ");
+        }
+        for (int i = 0; i < numbers.length; i++) {
+            int subractVergleiche = anzahlVBinear;
+            if (showAll){
+                System.out.print(suchzeitBinaer(0, array.length, numbers[i])-subractVergleiche+" ");
+            }
+        }      
+        System.out.println("");
+        System.out.println("Durchschnitt Vergleiche Binearsuche: " + anzahlVBinear/numbers.length);
     }
 }
