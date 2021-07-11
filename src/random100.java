@@ -108,4 +108,23 @@ public class random100 {
             quicksort(teiler+1,ende);
         }
     }
+
+    public void suchzeitBinaer(int left, int right, int suchzahl){
+        int median = teilen(left, right, suchzahl);
+        if (suchzahl!=array[median]) {
+         if (suchzahl<array[median] && left-median != 1 && right-median != 1) {
+             suchzeitBinaer(left, median, suchzahl);
+         }if (suchzahl>array[median] && left-median != 1 && right-median != 1) {
+             suchzeitBinaer(median, right, suchzahl);
+         }else{
+             System.out.println("Nicht vorhanden");
+         }
+        }else{
+            System.out.println(median);
+        }
+    }
+
+    public int teilen(int left, int right, int suchzahl){
+        return (right-left)/2+left;
+    }
 }
