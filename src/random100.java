@@ -1,14 +1,15 @@
 public class random100 {
     int[] array;
-    int anzahl = 1;
+    int anzahlNummer= 1;
+    int anzahlVBinear = 0;
     public random100(int aLaenge, int werteBereich){
         array = new int[aLaenge];
         for (int i = 0; i < array.length; i++) {
             double a = Math.random()*werteBereich;
-            for(int j=0; j<anzahl;){
+            for(int j=0; j<anzahlNummer;){
                 if((int)a!=array[j]&&a!=0){
                     array[i] = (int) a;
-                    anzahl++;
+                    anzahlNummer++;
                     break;
                 }
                 else{
@@ -21,14 +22,14 @@ public class random100 {
 
     public int anzahlVergleiche(int nLaenge, int werteBereich){
         int[] numbers = new int[nLaenge];
-        int anzahl = 1;
+        int anzahlVLinear = 1;
         int anzahlVergleiche = 0;
         for (int i = 0; i < numbers.length; i++) {
             double a = Math.random()*werteBereich;
-            for(int j=0; j<anzahl;){
+            for(int j=0; j<anzahlVLinear;){
                 if((int)a!=numbers[j]){
                     numbers[i] = (int) a;
-                    anzahl++;
+                    anzahlVLinear++;
                     break;
                 }
                 else{
@@ -126,6 +127,24 @@ public class random100 {
          }
         }else{
             return median;
+        }
+    }
+
+    public int suchzeitBinaer(int left, int right, int suchzahl){
+        anzahlVBinear++;
+        int median = teilen(left, right);
+        if (suchzahl!=array[median]) {
+         if (suchzahl<array[median] && left-median != 1 && right-median != 1) {
+             return suchzeitBinaer(left, median, suchzahl);
+             
+         }if (suchzahl>array[median] && left-median != 1 && right-median != 1) {
+             return suchzeitBinaer(median, right, suchzahl);
+             
+         }else{
+             return anzahlVBinear;
+         }
+        }else{
+            return anzahlVBinear;
         }
     }
 
