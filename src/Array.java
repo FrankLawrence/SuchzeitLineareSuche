@@ -3,6 +3,7 @@ public class Array {
     int anzahlNummer= 1;
     int anzahlVBinear = 0;
     int[] numbers;
+    private long laufzeit = 0;
     public Array(int aLaenge, int werteBereich){
         array = new int[aLaenge];
         for (int i = 0; i < array.length; i++) {
@@ -21,7 +22,8 @@ public class Array {
         }
     }
 
-    public int anzahlVergleiche(int nLaenge, int werteBereich){
+    public long anzahlVergleiche(int nLaenge, int werteBereich, boolean vergleiche){
+        long startzeit = System.currentTimeMillis();
         numbers = new int[nLaenge];
         int anzahlVLinear = 1;
         int anzahlVergleiche = 0;
@@ -53,7 +55,11 @@ public class Array {
             //System.out.println(anzahlVergleiche);
         }
         // durchlaufen von array und vergleich mit jeder Zahl in numbers
-        return anzahlVergleiche;
+        if (vergleiche) {
+            return anzahlVergleiche;
+        }else{
+            return laufzeit = (System.currentTimeMillis() - startzeit);
+        }
     }
 
     public void printArray(){
@@ -70,7 +76,7 @@ public class Array {
         
     }
 
-    public int gibIndex(int suchzahl){
+    public int indexLinear(int suchzahl){
         for (int i = 0; i < array.length; i++) {
             if (array[i]== suchzahl) {
                 return i;
@@ -149,7 +155,7 @@ public class Array {
         }
     }
 
-    public int teilen(int left, int right){
+    private int teilen(int left, int right){
         return (right-left)/2+left;
     }
 
@@ -175,8 +181,9 @@ public class Array {
         }
         for (int i = 0; i < numbers.length; i++) {
             int subractVergleiche = anzahlVBinear;
+            int vergleich1 = suchzeitBinaer(0, array.length, numbers[i]);
             if (showAll){
-                System.out.print(suchzeitBinaer(0, array.length, numbers[i])-subractVergleiche+" ");
+                System.out.print(vergleich1-subractVergleiche+" ");
             }
         }      
         System.out.println("");
