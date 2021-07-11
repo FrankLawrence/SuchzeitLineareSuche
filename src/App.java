@@ -21,6 +21,6 @@ public class App {
         }
         array.quicksort(0, laenge-1);
         array.printArray();
-        array.suchzeitBinaer(0, laenge-1, 60);
+        System.out.println(array.indexBinaer(0, laenge-1, 60));
     }
 }

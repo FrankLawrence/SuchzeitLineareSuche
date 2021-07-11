@@ -112,22 +112,24 @@ public class random100 {
         }
     }
 
-    public void suchzeitBinaer(int left, int right, int suchzahl){
-        int median = teilen(left, right, suchzahl);
+    public int indexBinaer(int left, int right, int suchzahl){
+        int median = teilen(left, right);
         if (suchzahl!=array[median]) {
          if (suchzahl<array[median] && left-median != 1 && right-median != 1) {
-             suchzeitBinaer(left, median, suchzahl);
+             return indexBinaer(left, median, suchzahl);
+             
          }if (suchzahl>array[median] && left-median != 1 && right-median != 1) {
-             suchzeitBinaer(median, right, suchzahl);
+             return indexBinaer(median, right, suchzahl);
+             
          }else{
-             System.out.println("Nicht vorhanden");
+             return array.length;
          }
         }else{
-            System.out.println(median);
+            return median;
         }
     }
 
-    public int teilen(int left, int right, int suchzahl){
+    public int teilen(int left, int right){
         return (right-left)/2+left;
     }
 }
