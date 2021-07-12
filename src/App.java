@@ -1,9 +1,9 @@
 public class App {
     public static void main(String[] args) {
         System.out.println("");
-        int laenge = 1000; //laenge des ersten Arrays
+        int laenge = 60; //laenge des ersten Arrays
         int nLaenge = 100; //laenge des zweiten Arrays
-        int werteBereich = 1000; //Wertebereich der Zahlen
+        int werteBereich = 100; //Wertebereich der Zahlen
         Array array = new Array(laenge, werteBereich); //neues Array mit obigen Werten
         long anzahlVergleiche = array.anzahlVergleiche(nLaenge, werteBereich, true); 
         long zeitVergleiche = array.anzahlVergleiche(nLaenge, werteBereich, false);
@@ -11,7 +11,7 @@ public class App {
         System.out.println("Anzahl Vergleiche Linearsuche: " + anzahlVergleiche); 
         System.out.println("Zeit Vergleiche Linearsuche: " + zeitVergleiche);
         System.out.println("Durchschnitt Vergleiche Linearsuche pro Zahl: " + Durchschnitt); //zeigt Anzahl Vergleiche pro Zahl
-        int anzahlVersuche = 1000;
+        int anzahlVersuche = 1;
         long Durchschnitt10 = 0;
         for (int i = 0; i < anzahlVersuche; i++) { //zeigt Anzahl Vergleiche pro Zahl (anzahlVersuche) mal aus, und rechnet genaueren Durchschnitt pro Zahl aus
             long b = array.anzahlVergleiche(nLaenge, werteBereich, true)/nLaenge;
@@ -24,7 +24,7 @@ public class App {
         }
         int index = 600;
         array.quicksort(0, laenge-1); //sortiert Array
-        //array.printArray();
+        array.printArray();
         if (array.indexBinaer(0, laenge-1, index)==laenge) {
             System.out.println(index+" in Array nicht vorhanden");
         }else{

@@ -1,6 +1,6 @@
 public class Array {
     int[] array;
-    int anzahlNummer= 1;
+    boolean exists;
     int anzahlVBinear = 0;
     int[] numbers;
     private long laufzeit = 0;
@@ -8,16 +8,18 @@ public class Array {
         array = new int[aLaenge];
         for (int i = 0; i < array.length; i++) {
             double a = Math.random()*werteBereich;
-            for(int j=0; j<anzahlNummer;){
+            for(int j=0; j<array.length;){
                 if((int)a!=array[j]&&a!=0){
-                    array[i] = (int) a;
-                    anzahlNummer++;
-                    break;
-                }
-                else{
+                    exists = false;
+                    j++;
+                }else{
+                    exists = true;
                     i--;
                     break;
                 }
+            }
+            if (exists == false) {
+                array[i] = (int) a;
             }
         }
     }
@@ -124,10 +126,10 @@ public class Array {
         int median = teilen(left, right);
         if (suchzahl!=array[median]) {
          if (suchzahl<array[median] && left-median != 1 && right-median != 1) {
-             return indexBinaer(left, median, suchzahl);
+             return indexBinaer(left, median-1, suchzahl);
              
          }if (suchzahl>array[median] && left-median != 1 && right-median != 1) {
-             return indexBinaer(median, right, suchzahl);
+             return indexBinaer(median+1, right, suchzahl);
              
          }else{
              return array.length;
