@@ -32,7 +32,7 @@ public class App {
         }
         //System.out.println("Anzahl Vergleiche Binearsuche: " + array.suchzeitBinaer(0, laenge-1, index)); // rechnet Anzahl der Vergleiche um Nummer zu finden
         array.suchzeitBinearDurchschnitt(nLaenge, werteBereich, false);
-        System.out.println(array.indexInterpolation(werteBereich, index));
+        System.out.println(array.indexInterpolationQuicksort(werteBereich, index));
         System.out.println("");
     }
 }

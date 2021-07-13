@@ -229,4 +229,15 @@ public class Array {
             return exist;
         }
     }
+
+    public int indexInterpolationQuicksort(int werteBereich, int suchzahl){
+        int einstieg = suchzahl/(werteBereich/array.length);
+        if (array[einstieg]>suchzahl) {
+            return indexBinaer(0, einstieg, suchzahl);
+        }if (array[einstieg]<suchzahl) {
+            return indexBinaer(einstieg, array.length-1, suchzahl);
+        }else{
+            return einstieg;
+        }
+    }
 }
