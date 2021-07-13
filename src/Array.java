@@ -1,24 +1,26 @@
 public class Array {
     int[] array;
+    int[] sortedArray;
     boolean exists;
     int anzahlVBinear = 0;
     int[] numbers;
     private long laufzeit = 0;
-    public Array(int aLaenge, int werteBereich){
+    public Array(int aLaenge, int werteBereich, boolean random){
         array = new int[aLaenge];
-        for (int i = 0; i < array.length; i++) {
-            double a = Math.random()*werteBereich;
-            for(int j=0; j<array.length;){
-                if((int)a!=array[j]&&a!=0){
-                    exists = false;
-                    j++;
-                }else{
-                    exists = true;
+        sortedArray = new int[werteBereich];
+        if (!random) {
+            for (int i = 0; i < aLaenge; i++) {
+                double a = Math.random()*werteBereich;
+                if (sortedArray[(int)a-1] == a) {
                     i--;
-                    break;
+                }else{
+                    array[i] = (int) a;
+                    sortedArray[(int)a-1] = (int) a;
                 }
             }
-            if (exists == false) {
+        }else{
+            for (int i = 0; i < aLaenge; i++) {
+                double a = Math.random()*werteBereich;
                 array[i] = (int) a;
             }
         }
