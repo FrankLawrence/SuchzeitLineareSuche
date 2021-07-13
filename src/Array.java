@@ -4,6 +4,7 @@ public class Array {
     boolean exists;
     int anzahlVBinear = 0;
     int[] numbers;
+    int exist;
     private long laufzeit = 0;
     public Array(int aLaenge, int werteBereich, boolean random){
         array = new int[aLaenge];
@@ -192,5 +193,40 @@ public class Array {
         }      
         System.out.println("");
         System.out.println("Durchschnitt Vergleiche Binearsuche: " + anzahlVBinear/numbers.length);
+    }
+
+    public int indexInterpolation(int werteBereich, int suchzahl){
+        int einstieg = suchzahl/(werteBereich/array.length);
+        if (array[einstieg]>suchzahl) {
+            for (int i=einstieg; i > 0; i--){
+              if (array[i]==suchzahl)
+              {
+                  exist = i;
+                  break;
+              }
+              else if (array[i] > suchzahl)
+              {
+                exist = array.length;
+                break;
+              }
+            }
+        }if (array[einstieg]<suchzahl) {
+            for (int i=einstieg; i < array.length; i++)
+              if (array[i]==suchzahl)
+              {
+                 exist = i;
+                 break;
+              }
+              else if (array[i] > suchzahl)
+              {
+                 exist = array.length;
+                 break;
+              }
+        }
+        if (exist == array.length) {
+            return array.length;
+        }else{
+            return exist;
+        }
     }
 }

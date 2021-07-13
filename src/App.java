@@ -1,10 +1,10 @@
 public class App {
     public static void main(String[] args) {
         System.out.println("");
-        int laenge = 60; //laenge des ersten Arrays
+        int laenge = 1000; //laenge des ersten Arrays
         int nLaenge = 100; //laenge des zweiten Arrays
-        int werteBereich = 100; //Wertebereich der Zahlen
-        Array array = new Array(laenge, werteBereich); //neues Array mit obigen Werten
+        int werteBereich = 10000; //Wertebereich der Zahlen
+        Array array = new Array(laenge, werteBereich, true); //neues Array mit obigen Werten
         long anzahlVergleiche = array.anzahlVergleiche(nLaenge, werteBereich, true); 
         long zeitVergleiche = array.anzahlVergleiche(nLaenge, werteBereich, false);
         long Durchschnitt = anzahlVergleiche/nLaenge; //zeigt Anzahl Vergleiche der nLaenge Zahlen
@@ -22,7 +22,7 @@ public class App {
                 System.out.println("Durchschnitt Linearsuche genau: "+ Durchschnitt10/anzahlVersuche );
             }
         }
-        int index = 600;
+        int index = 1000;
         array.quicksort(0, laenge-1); //sortiert Array
         array.printArray();
         if (array.indexBinaer(0, laenge-1, index)==laenge) {
@@ -32,6 +32,7 @@ public class App {
         }
         //System.out.println("Anzahl Vergleiche Binearsuche: " + array.suchzeitBinaer(0, laenge-1, index)); // rechnet Anzahl der Vergleiche um Nummer zu finden
         array.suchzeitBinearDurchschnitt(nLaenge, werteBereich, false);
+        System.out.println(array.indexInterpolation(werteBereich, index));
         System.out.println("");
     }
 }
