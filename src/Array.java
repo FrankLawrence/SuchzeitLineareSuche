@@ -12,11 +12,11 @@ public class Array {
         if (!random) {
             for (int i = 0; i < aLaenge; i++) {
                 double a = Math.random()*werteBereich;
-                if (sortedArray[(int)a-1] == a) {
+                if (sortedArray[(int)a] == (int)a) {
                     i--;
                 }else{
                     array[i] = (int) a;
-                    sortedArray[(int)a-1] = (int) a;
+                    sortedArray[(int)a] = (int) a;
                 }
             }
         }else{
@@ -232,7 +232,9 @@ public class Array {
 
     public int indexInterpolationQuicksort(int werteBereich, int suchzahl){
         int einstieg = suchzahl/(werteBereich/array.length);
-        if (array[einstieg]>suchzahl) {
+        if (einstieg>=array.length) {
+            return array.length;
+        }if (array[einstieg]>suchzahl) {
             return indexBinaer(0, einstieg, suchzahl);
         }if (array[einstieg]<suchzahl) {
             return indexBinaer(einstieg, array.length-1, suchzahl);
